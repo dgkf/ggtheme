@@ -1,0 +1,21 @@
+Package: ggtheme
+Title: Theming conveniences for ggplot2
+Description: Theming conveniences for ggplot2
+Version: 0.0.1
+Authors@R: c(
+    person(
+        given = "Doug", 
+        family = "Kelkhoff", 
+        email = "18220321+dgkf@users.noreply.github.com", 
+        role = c("aut", "cre")))
+Imports:
+Depends:
+    R (>= 3.0.0),
+    ggplot2,
+    colorspace
+Suggests:
+    testthat
+License: MIT
+LazyData: true
+RoxygenNote: 7.0.2
+Encoding: UTF-8
