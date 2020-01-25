@@ -97,9 +97,11 @@ get_theme_value <- function(..., default = NULL, theme) {
 
 
 #' @export
-ggtheme <- function(..., discrete_scale_colors, 
-    discrete_scale_colours = discrete_scale_colors, 
+ggtheme <- function(..., discrete_scale_colors, discrete_scale_colours, 
     continuous_scale_gradient) {
+  
+  if (!missing(discrete_scale_colors)) 
+    discrete_scale_colours <- discrete_scale_colors
   
   if (!missing(discrete_scale_colours))
     theme_ggplot2_scales_discrete(discrete_scale_colours)
@@ -121,6 +123,7 @@ ggtheme <- function(..., discrete_scale_colors,
   
   # theme any params that can be set via ggplot2::update_geom_defaults or
   # ggplot2::update_stat_defaults
+  print(dots)
   is_aes_dot <- do.call(update_ggproto_defaults_aes, dots)
   dots <- dots[!is_aes_dot]
   
