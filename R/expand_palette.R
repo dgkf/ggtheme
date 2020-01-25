@@ -5,6 +5,7 @@ make_pal_expand_lighter <- function(colors) {
   f
 }
 
+#' @importFrom colorspace lighten
 pal_expand_lighter <- function(colors, n) {
   if (n <= length(colors)) return(colors[1:n])
   n_added_palettes <- n %/% length(colors)

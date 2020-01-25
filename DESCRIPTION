@@ -9,10 +9,10 @@ Authors@R: c(
         email = "18220321+dgkf@users.noreply.github.com", 
         role = c("aut", "cre")))
 Imports:
-Depends:
-    R (>= 3.0.0),
     ggplot2,
     colorspace
+Depends:
+    R (>= 3.0.0),
 Suggests:
     testthat
 License: MIT
