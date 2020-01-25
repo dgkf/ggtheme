@@ -123,7 +123,6 @@ ggtheme <- function(..., discrete_scale_colors, discrete_scale_colours,
   
   # theme any params that can be set via ggplot2::update_geom_defaults or
   # ggplot2::update_stat_defaults
-  print(dots)
   is_aes_dot <- do.call(update_ggproto_defaults_aes, dots)
   dots <- dots[!is_aes_dot]
   
