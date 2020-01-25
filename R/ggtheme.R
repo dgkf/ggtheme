@@ -97,10 +97,12 @@ get_theme_value <- function(..., default = NULL, theme) {
 
 
 #' @export
-ggtheme <- function(..., discrete_scale_colors, continuous_scale_gradient) {
+ggtheme <- function(..., discrete_scale_colors, 
+    discrete_scale_colours = discrete_scale_colors, 
+    continuous_scale_gradient) {
   
-  if (!missing(discrete_scale_colors))
-    theme_ggplot2_scales_discrete(discrete_scale_colors)
+  if (!missing(discrete_scale_colours))
+    theme_ggplot2_scales_discrete(discrete_scale_colours)
   
   if (!missing(continuous_scale_gradient))
     theme_ggplot2_scales_continuous(continuous_scale_gradient)
@@ -108,7 +110,8 @@ ggtheme <- function(..., discrete_scale_colors, continuous_scale_gradient) {
   dots <- list(...)
   dots <- unpack_list_aes(dots)
   
-  if (length(dots) && (is.null(names(dots)) || any(names(dots) == "")))
+  if (!length(dots)) return(invisible())
+  if (is.null(names(dots)) || any(names(dots) == ""))
     stop("All ellipsis arguments must be named or an aesthetic.")
   
   # theme any params that can be set via ggplot2::theme_update
